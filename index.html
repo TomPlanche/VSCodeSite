@@ -4,72 +4,95 @@
     <title>Toms VSCode Like Website</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="src/styles.scss" />
-    
+
     <meta name="robots" content="noindex, nofollow">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5">
 
 
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-    <body>
+    <div class="tout">
         <div class="sidebar">
             <div class="logo-details">
-                <div class="logo_name">GuillianVomito</div>
+                <i class='bx bxl-c-plus-plus icon'></i>
+                <div class="logo_name">LouisLoveSite</div>
                 <i class='bx bx-menu' id="btn"></i>
             </div>
             <ul class="nav-list">
                 <li>
                     <a href="#">
-                        <i class='bx bx-file'></i>
-                        <span class="links_name">Files</span>
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="links_name">Dashboard</span>
                     </a>
-                    <span class="tooltip">Files</span>
+                    <span class="tooltip">Dashboard</span>
                 </li>
                 <li>
                     <a href="#">
-                        <i class='bx bx-code'></i>
-                        <span class="links_name">Portfolio</span>
+                        <i class='bx bx-user'></i>
+                        <span class="links_name">User</span>
                     </a>
-                    <span class="tooltip">Portfolio</span>
+                    <span class="tooltip">User</span>
                 </li>
-                <li class="profile">
-                    <i class='bx bx-cog' id="log_out"></i>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-cog'></i>
+                        <span class="links_name">Setting</span>
+                    </a>
+                    <span class="tooltip">Setting</span>
                 </li>
             </ul>
         </div>
-        <section class="home-section">
-            <div id="menu">
-                <ul>
-                    <li class="btn active" id="fic1">
-                        <i class='bx bx-code'></i>
-                        <a href="#">Home</a>
+
+
+        <div class="content">
+            <div class="file-bar">
+                <ul class="nav-links">
+                    <li class="forward active">
+                        <i class='bx bx-code '></i>
+                        <a href="#">Zizi</a>
+                        <i class='bx bx-x croix'></i>
                     </li>
-                    <li class="btn" id="fic2">
-                        <i class='bx bxl-python'></i>
-                        <a href="#">About</a>
+                    <li class="forward">
+                        <i class='bx bxl-javascript '></i>
+                        <a href="#">Caca</a>
+                        <i class='bx bx-x croix'></i>
                     </li>
-                    <li class="btn" id="fic3">
-                        <i class='bx bxl-c-plus-plus' ></i>
-                        <a href="#">Products</a>
+                    <li class="forward">
+                        <i class='bx bx-code '></i>
+                        <a href="#">Pipi</a>
+                        <i class='bx bx-x croix'></i>
                     </li>
-                    <li class="btn" id="fic4">
-                        <i class='bx bxl-javascript' ></i>
-                        <a href="#">Blog</a>
+                    <li class="forward">
+                        <i class='bx bx-code '></i>
+                        <a href="#">cucu</a>
+                        <i class='bx bx-x croix'></i>
                     </li>
-                    <li class="btn" id="fic5">
-                        <i class='bx bx-beer' ></i>
-                        <a href="#">Contact</a>
+
+                    <li>
+                        <i class='bx bx-dots-vertical-rounded points'></i>
                     </li>
                 </ul>
             </div>
-            <div class="text">Main ou y'aura les fichiers</div>
-        </section>
-    </body>
-    <script type="module" src="main.js"></script>
+            <div>
+                <p>louis</p>
+                <img src="src/img/louis(tom).png" id="louis">
+            </div>
+            <div class="">
+                <ul class="é">
+                    <li class="forward"><a href="#">Dashboard</a></li>
+                    <li class="forward"><a href="#">Portfolio</a></li>
+                    <li class="forward"><a href="#">Services</a></li>
+                    <li class="forward"><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+<script type="module" src="src/index.ts"></script>
 
 </html>
