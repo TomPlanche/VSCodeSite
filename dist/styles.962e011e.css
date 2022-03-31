@@ -129,23 +129,16 @@ body {
   padding: 6px 14px;
   transition: all 0.5s ease;
 }
-
-.sidebar.open {
-  width: 40vh;
-}
-
 .sidebar .logo-details {
   height: 60px;
   display: flex;
   align-items: center;
   position: relative;
 }
-
 .sidebar .logo-details .icon {
   opacity: 0;
   transition: all 0.5s ease;
 }
-
 .sidebar .logo-details .logo_name {
   color: #fff;
   font-size: 20px;
@@ -153,29 +146,16 @@ body {
   opacity: 0;
   transition: all 0.5s ease;
 }
-
-.sidebar.open .logo-details .icon,
-.sidebar.open .logo-details .logo_name {
-  opacity: 1;
-}
-
 .sidebar .logo-details #btn {
   position: absolute;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  font-size: 22px;
-  transition: all 0.4s ease;
   font-size: 23px;
   text-align: center;
   cursor: pointer;
   transition: all 0.5s ease;
 }
-
-.sidebar.open .logo-details #btn {
-  text-align: right;
-}
-
 .sidebar i {
   color: #fff;
   height: 60px;
@@ -184,18 +164,15 @@ body {
   text-align: center;
   line-height: 60px;
 }
-
 .sidebar .nav-list {
   margin-top: 20px;
   height: 100%;
 }
-
 .sidebar li {
   position: relative;
   margin: 8px 0;
   list-style: none;
 }
-
 .sidebar li .tooltip {
   position: absolute;
   top: -20px;
@@ -212,7 +189,6 @@ body {
   pointer-events: none;
   transition: 0s;
 }
-
 .sidebar li:hover .tooltip {
   opacity: 1;
   pointer-events: auto;
@@ -220,53 +196,9 @@ body {
   top: 50%;
   transform: translateY(-50%);
 }
-
-.sidebar.open li .tooltip {
-  display: none;
-}
-
-.sidebar input {
-  font-size: 15px;
-  color: #FFF;
-  font-weight: 400;
-  outline: none;
-  height: 50px;
-  width: 100%;
-  width: 50px;
-  border: none;
-  border-radius: 12px;
-  transition: all 0.5s ease;
-  background: #1d1b31;
-}
-
-.sidebar.open input {
-  padding: 0 20px 0 50px;
-  width: 100%;
-}
-
-.sidebar .bx-search {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  font-size: 22px;
-  background: #1d1b31;
-  color: #FFF;
-}
-
-.sidebar.open .bx-search:hover {
-  background: #1d1b31;
-  color: #FFF;
-}
-
-.sidebar .bx-search:hover {
-  background: #FFF;
-  color: #11101d;
-}
-
 .sidebar li a {
   display: flex;
-  height: calc(50px + 2vh);
+  height: calc(50px + 2.5vh);
   width: 100%;
   border-radius: 12px;
   align-items: center;
@@ -274,11 +206,6 @@ body {
   transition: all 0.4s ease;
   background: #11101D;
 }
-
-.sidebar li a:hover {
-  background: #FFF;
-}
-
 .sidebar li a .links_name {
   color: #fff;
   font-size: 15px;
@@ -287,6 +214,51 @@ body {
   opacity: 0;
   pointer-events: none;
   transition: 0.4s;
+}
+.sidebar li a:hover {
+  background: #fff;
+}
+.sidebar li i {
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  border-radius: 12px;
+}
+.sidebar li .profile-details {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.sidebar input {
+  font-size: 15px;
+  color: #FFF;
+  font-weight: 400;
+  outline: none;
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  background: #1d1b31;
+}
+
+.sidebar.open {
+  width: 30vh;
+}
+.sidebar.open #btn {
+  text-align: right;
+}
+.sidebar.open li .tooltip {
+  display: none;
+}
+.sidebar.open input {
+  padding: 0 20px 0 50px;
+  width: 100%;
+}
+
+.sidebar.open .logo-details .icon,
+.sidebar.open .logo-details .logo_name {
+  opacity: 1;
 }
 
 .sidebar.open li a .links_name {
@@ -300,41 +272,8 @@ body {
   color: #11101D;
 }
 
-.sidebar li i {
-  height: 50px;
-  line-height: 50px;
-  font-size: 18px;
-  border-radius: 12px;
-}
-
-.sidebar li.profile {
-  position: fixed;
-  height: 60px;
-  width: 100%;
-  left: 0;
-  bottom: -8px;
-  padding: 10px 14px;
-  background: #1d1b31;
-  transition: all 0.5s ease;
-  overflow: hidden;
-}
-
 li.profile {
-  width: 40vh;
-}
-
-.sidebar li .profile-details {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-}
-
-.sidebar li img {
-  height: 45px;
-  width: 45px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-right: 10px;
+  width: 30vh;
 }
 
 .sidebar li.profile .name,
@@ -345,28 +284,6 @@ li.profile {
   white-space: nowrap;
 }
 
-.sidebar li.profile .job {
-  font-size: 12px;
-}
-
-.sidebar .profile #log_out {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  background: #1d1b31;
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 0px;
-  transition: all 0.5s ease;
-}
-
-.sidebar.open .profile #log_out {
-  width: 50px;
-  background: none;
-}
-
 @media (max-width: 420px) {
   .sidebar li .tooltip {
     display: none;
@@ -374,7 +291,7 @@ li.profile {
 }
 .content {
   width: 100%;
-  background: red;
+  background: #0F111B;
   transition: all 0.5s ease;
 }
 .content img {
@@ -384,9 +301,8 @@ li.profile {
 
 .file-bar {
   width: 100%;
-  height: 5vh;
+  height: 6vh;
   background: #0F111B;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .nav-links {
@@ -394,11 +310,11 @@ li.profile {
   align-items: center;
   height: 100%;
 }
-.nav-links li {
+.nav-links li:not(.plus) {
   list-style: none;
   margin: 0 12px;
 }
-.nav-links li a {
+.nav-links li:not(.plus) a {
   position: relative;
   color: #A3ACD0;
   font-size: 20px;
@@ -406,22 +322,34 @@ li.profile {
   text-decoration: none;
   padding: 0 15px;
 }
-.nav-links li .bx {
+.nav-links li:not(.plus) .bx {
   color: transparent;
 }
-.nav-links li .croix {
+.nav-links li:not(.plus) .croix {
   color: transparent;
 }
-.nav-links li:hover {
+.nav-links li:not(.plus):hover:not(.active) {
   border-bottom: #4A4F64 2px solid;
 }
-.nav-links li .points {
+.nav-links li:not(.plus):hover:not(.active) .croix {
+  color: #4A4F64;
+}
+.nav-links li:not(.plus):hover:not(.active) .croix:hover {
+  color: #A3ACD0;
+}
+.nav-links li:not(.plus) .points {
   position: absolute;
   right: 0;
   color: red;
 }
 .nav-links:before {
   border-bottom: #0F111B 2px solid;
+}
+.nav-links li.plus {
+  position: relative;
+  color: #A3ACD0;
+  font-size: 20px;
+  cursor: pointer;
 }
 .nav-links li.center a:before {
   left: 50%;
@@ -440,6 +368,10 @@ li.profile {
 .nav-links li.active .croix:hover {
   color: #A3ACD0;
 }
+.nav-links li.bouton-plus {
+  color: red;
+  font-size: 40px;
+}
 
 .nav-links li.upward a:before {
   width: 100%;
@@ -448,7 +380,7 @@ li.profile {
 }
 
 .nav-links li.upward a:hover:before {
-  bottom: 0px;
+  bottom: 0;
   opacity: 1;
 }
 
