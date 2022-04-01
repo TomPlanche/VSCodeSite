@@ -1,30 +1,32 @@
 
+// Sidebar element
 let sidebar = document.querySelector(".sidebar");
+
+// Close button element
 let closeBtn = document.querySelector("#btn");
 
-let navBar = document.querySelector(".menu")
 
+// Add an event on click to close button
 closeBtn.addEventListener("click", () => {
     sidebar.classList.toggle("open");
-    navBar.classList.toggle("open");
     menuBtnChange(); 
 });
 
 
-function menuBtnChange() {
-    if (sidebar.classList.contains("open")) {
-        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right"); 
-    } else {
-        closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); 
-    }
+/**
+ * Function to toggle the menu button position.
+ */
+const menuBtnChange = () => {
+    closeBtn.classList.replace(
+        sidebar.classList.contains("open") ? "bx-menu" : "bx-menu-alt-right",
+        sidebar.classList.contains("open") ? "bx-menu-alt-right" : "bx-menu"
+    );
+};
 
-    if (navBar.classList.contains("open")) {
-        navBar.classList.replace("open", "close"); 
-    } else {
-        navBar.classList.replace("close", "open"); 
-    }
-}
-
+/**
+ * Add the "active" class to an element.
+ * @param element element to which to add the 'active' class.
+ */
 const underline = (element: Element) => {
     element.classList.add("active");
 }
@@ -39,8 +41,11 @@ items.forEach((item) => {
     });
 });
 
+/**
+ * Return the list of the li.forward ids.
+ */
 const returnListId = () => {
-    var liste = [];
+    let liste = [];
 
     document.querySelectorAll(".nav-links li.forward").forEach((item) => {
         liste.push(item.id);
@@ -50,6 +55,10 @@ const returnListId = () => {
 }
 
 
+/**
+ * Delete a file from the file-bar.
+ * @param elementId
+ */
 const delFic = (elementId: string) => {
     const elem = document.getElementById(elementId);
     const liste = returnListId();
@@ -73,6 +82,9 @@ const delFic = (elementId: string) => {
     elem.parentNode.removeChild(elem);
 }
 
+/**
+ * Add a 'click' listener to the crosses in order to delete the file.
+ */
 const croix = document.querySelectorAll(".croix");
 croix.forEach((croix) => {
     croix.addEventListener("click", () => {
@@ -80,61 +92,31 @@ croix.forEach((croix) => {
     });
 });
 
-// const filesInBar: { [id: string]: string } = {
-//     "fic1":
-//         "<li class=\"forward active\" id=\"fic1\">\n" +
-//         "    <i class='bx bx-code '></i>\n" +
-//         "    <a href=\"#\">index.html</a>\n" +
-//         "    <i class='bx bx-x croix'></i>\n" +
-//         "</li>",
-//     "fic2":
-//         "<li class=\"forward active\" id=\"fic2\">\n" +
-//         "    <i class='bx bx-code '></i>\n" +
-//         "    <a href=\"#\">style.scss</a>\n" +
-//         "    <i class='bx bx-x croix'></i>\n" +
-//         "</li>",
-//     "fic3":
-//         "<li class=\"forward active\" id=\"fic3\">\n" +
-//         "    <i class='bx bx-code '></i>\n" +
-//         "    <a href=\"#\">main.ts</a>\n" +
-//         "    <i class='bx bx-x croix'></i>\n" +
-//         "</li>"
-// };
-//
-// const addFic = (elementId: string) => {
-//     const elem = document.getElementById(elementId);
-//     const lastId = "#fic" + (+elementId.slice(3) - 1);
-//
-//     if (elem.classList.contains("active")) {
-//         document.querySelector(lastId).classList.add("active");
-//     }
-//     elem.parentNode.appendChild(elem);
-// }
+const filesInBar: { [id: string]: string } = {
+    "fic1":
+        "<li class=\"forward active\" id=\"fic1\">\n" +
+        "    <i class='bx bx-code '></i>\n" +
+        "    <a href=\"#\">index.html</a>\n" +
+        "    <i class='bx bx-x croix'></i>\n" +
+        "</li>",
+    "fic2":
+        "<li class=\"forward active\" id=\"fic2\">\n" +
+        "    <i class='bx bx-code '></i>\n" +
+        "    <a href=\"#\">style.scss</a>\n" +
+        "    <i class='bx bx-x croix'></i>\n" +
+        "</li>",
+    "fic3":
+        "<li class=\"forward active\" id=\"fic3\">\n" +
+        "    <i class='bx bx-code '></i>\n" +
+        "    <a href=\"#\">main.ts</a>\n" +
+        "    <i class='bx bx-x croix'></i>\n" +
+        "</li>"
+};
 
 
 
-// const boutonAjout = document.querySelector(".plus");
-// boutonAjout.addEventListener("click", () => {
-//     const filesInBarWebsite = document.querySelectorAll(".nav-links .forward");
-//
-//     for (let i = 0; i < Object.keys(filesInBar).length; i++) {
-//         // console.log(filesInBarWebsite[i]);
-//         // if (filesInBarWebsite[i].id != "fic" + (i + 1)) {
-//         //     console.log(filesInBarWebsite[i].innerHTML);
-//         //     // filesInBarWebsite[i].innerHTML = filesInBar[filesInBarWebsite["fic" + i]];
-//         // } else {
-//         //     console.log("aaazaezaz");
-//         // }
-//         console.log(filesInBarWebsite[i]);
-//         if (filesInBarWebsite[i] === undefined) {
-//             console.log(filesInBar["fic" + (i + 1)]);
-//             // filesInBarWebsite[i].innerHTML = filesInBar[filesInBarWebsite["fic" + i]];
-//         } else {
-//             console.log(returnLastId(filesInBarWebsite));
-//         }
-//     }
-//
-// })
+
+
 
 
 
