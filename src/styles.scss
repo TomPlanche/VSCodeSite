@@ -303,9 +303,7 @@ li.profile {
             color: $couleur-police-principale;
             font-size: 20px;
             font-weight: 500;
-             padding: 6px 0;
             //text-decoration: none;
-            padding: 0 10px;
 
         }
 
@@ -419,18 +417,56 @@ li.profile {
     }
 
     .code {
-        font-family: Menlo;
+        font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
         height: 100%;
         width: 97vw;
+
+        .ligneCode {
+            padding-left: 10px;
+            white-space: pre-wrap;
+            color: #DCD8DE;
+        }
 
     }
 
     .ligneCode {
-            color: $couleur-police-secondaire;
-            line-height: 40px;
-            text-align: left;
-            padding-right: 5px;
+        color: $couleur-police-secondaire;
+        line-height: 25px;
+        text-align: left;
+        padding-right: 5px;
+        font-size: 20px;
 
-            font-size: 25px;
+        &.comment {
+            color: #5bec95;
+        }
+
+        a {
+
+            &.includeB {
+                color: #93E2FF;
+            }
+
+            &.string {
+                color: #CAEB97;
+            }
+
+            &.keyword {
+                color: #CD9CED;
+            }
+
+            &.type {
+                color: #FFD227;
+            }
+
+            &.bracket {
+                color: #FFDC03;
+            }
+
+            &.int {
+                color: #F89677;
+            }
+        }
     }
 }
+//ffea6b - parenthese -> jaune
+//F89677

@@ -42,7 +42,7 @@ const underline = (element: Element) => {
 }
 
 /**
- * Return the list of the li.forward ids.
+ * Return the list of the li. .forward ids.
  */
 const returnListId = () => {
     let liste = [];
@@ -97,7 +97,7 @@ const filesInBar: { [id: string]: string } = {
     "fic1":
         "<li class=\"forward\" id=\"fic1\">\n" +
         "    <i class='bx bx-code '></i>\n" +
-        "    <a>index.html</a>\n" +
+        "    <a>me.css</a>\n" +
         "    <i class='bx bx-x croix'></i>\n" +
         "</li>",
     "fic2":
@@ -165,14 +165,6 @@ const bouton_plus = document.querySelector(".plus");
 bouton_plus.addEventListener("click", () => {
     addFile();
 });
-
-
-
-
-console.log("Zemmour le sang")
-
-
-
 
 
 
