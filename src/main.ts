@@ -134,7 +134,10 @@ const addFile = () => {
             }
         }
     } else {
-        console.log("pas passé ❌");
+        if (lenListe === 0) {
+            document.querySelector(".nav-links").insertAdjacentHTML("afterbegin", filesInBar["fic1"]);
+            underline(document.querySelector("#fic1"));
+        }
     }
     /**
      * Add a 'click' listener to the crosses in order to delete the file.
