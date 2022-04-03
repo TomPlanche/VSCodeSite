@@ -126,12 +126,26 @@ body {
   height: 100%;
   width: 78px;
   background: #0F111B;
-  padding: 6px 14px;
   transition: all 0.5s ease;
 }
-.sidebar .logo-details {
-  height: 60px;
+.sidebar #bottom {
+  position: fixed;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  background: #65CDC4;
+  color: black;
+  font-size: 25px;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+}
+.sidebar .logo-details {
+  height: 6vh;
+  display: flex;
+  justify-content: center;
   align-items: center;
   position: relative;
 }
@@ -149,14 +163,13 @@ body {
 .sidebar .logo-details #btn {
   position: absolute;
   top: 50%;
-  right: 0;
   transform: translateY(-50%);
   font-size: 23px;
   text-align: center;
   cursor: pointer;
   transition: all 0.5s ease;
 }
-.sidebar i {
+.sidebar i:not(.bottom) {
   color: #fff;
   height: 60px;
   min-width: 50px;
@@ -166,7 +179,7 @@ body {
 }
 .sidebar .nav-list {
   margin-top: 20px;
-  height: 100%;
+  height: auto;
 }
 .sidebar li {
   position: relative;
@@ -202,9 +215,10 @@ body {
   width: 100%;
   border-radius: 12px;
   align-items: center;
+  padding: 0 20%;
   text-decoration: none;
   transition: all 0.4s ease;
-  background: #11101D;
+  background: #0F111B;
 }
 .sidebar li a .links_name {
   color: #fff;
@@ -246,7 +260,14 @@ body {
   width: 30vh;
 }
 .sidebar.open #btn {
-  text-align: right;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 23px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
 }
 .sidebar.open li .tooltip {
   display: none;
@@ -310,46 +331,42 @@ li.profile {
   align-items: center;
   height: 100%;
 }
-.nav-links li:not(.plus) {
+.nav-links li:not(.plus, .points) {
   list-style: none;
   margin: 0 12px;
 }
-.nav-links li:not(.plus) a {
+.nav-links li:not(.plus, .points) a {
   position: relative;
   color: #A3ACD0;
   font-size: 20px;
   font-weight: 500;
-  text-decoration: none;
-  padding: 0 15px;
+  padding: 6px 0;
+  padding: 0 10px;
 }
-.nav-links li:not(.plus) .bx {
+.nav-links li:not(.plus, .points) .bx {
   color: transparent;
 }
-.nav-links li:not(.plus) .croix {
+.nav-links li:not(.plus, .points) .croix {
   color: transparent;
 }
-.nav-links li:not(.plus):hover:not(.active) {
+.nav-links li:not(.plus, .points):hover:not(.active) {
   border-bottom: #4A4F64 2px solid;
 }
-.nav-links li:not(.plus):hover:not(.active) .croix {
+.nav-links li:not(.plus, .points):hover:not(.active) .croix {
   color: #4A4F64;
 }
-.nav-links li:not(.plus):hover:not(.active) .croix:hover {
+.nav-links li:not(.plus, .points):hover:not(.active) .croix:hover {
   color: #A3ACD0;
-}
-.nav-links li:not(.plus) .points {
-  position: absolute;
-  right: 0;
-  color: red;
 }
 .nav-links:before {
   border-bottom: #0F111B 2px solid;
 }
-.nav-links li.plus {
+.nav-links li {
   position: relative;
   color: #A3ACD0;
   font-size: 20px;
   cursor: pointer;
+  margin-left: 20px;
 }
 .nav-links li.center a:before {
   left: 50%;

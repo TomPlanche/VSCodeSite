@@ -12,6 +12,15 @@ closeBtn.addEventListener("click", () => {
     menuBtnChange(); 
 });
 
+const items = document.querySelectorAll(".forward a");
+items.forEach((item) => {
+    item.addEventListener("click", () => {
+        items.forEach((item) => {
+            item.parentElement.classList.remove("active");
+        });
+        underline(item.parentElement);
+    });
+});
 
 /**
  * Function to toggle the menu button position.
@@ -28,18 +37,9 @@ const menuBtnChange = () => {
  * @param element element to which to add the 'active' class.
  */
 const underline = (element: Element) => {
+    document.querySelectorAll(".forward").forEach(e => e.classList.remove("active"));
     element.classList.add("active");
 }
-
-const items = document.querySelectorAll(".file-bar ul li:not(.plus) a");
-items.forEach((item) => {
-    item.addEventListener("click", () => {
-        items.forEach((item) => {
-            item.parentElement.classList.remove("active");
-        });
-        underline(item.parentElement);
-    });
-});
 
 /**
  * Return the list of the li.forward ids.
@@ -82,10 +82,11 @@ const delFic = (elementId: string) => {
     elem.parentNode.removeChild(elem);
 }
 
+
 /**
  * Add a 'click' listener to the crosses in order to delete the file.
  */
-const croix = document.querySelectorAll(".croix");
+let croix = document.querySelectorAll(".croix");
 croix.forEach((croix) => {
     croix.addEventListener("click", () => {
         delFic(croix.parentElement.id);
@@ -94,31 +95,78 @@ croix.forEach((croix) => {
 
 const filesInBar: { [id: string]: string } = {
     "fic1":
-        "<li class=\"forward active\" id=\"fic1\">\n" +
+        "<li class=\"forward\" id=\"fic1\">\n" +
         "    <i class='bx bx-code '></i>\n" +
-        "    <a href=\"#\">index.html</a>\n" +
+        "    <a>index.html</a>\n" +
         "    <i class='bx bx-x croix'></i>\n" +
         "</li>",
     "fic2":
-        "<li class=\"forward active\" id=\"fic2\">\n" +
+        "<li class='forward' id='fic2'>\n" +
         "    <i class='bx bx-code '></i>\n" +
-        "    <a href=\"#\">style.scss</a>\n" +
+        "    <a>style.scss</a>\n" +
         "    <i class='bx bx-x croix'></i>\n" +
         "</li>",
     "fic3":
-        "<li class=\"forward active\" id=\"fic3\">\n" +
-        "    <i class='bx bx-code '></i>\n" +
-        "    <a href=\"#\">main.ts</a>\n" +
-        "    <i class='bx bx-x croix'></i>\n" +
+        "<li class='forward' id='fic3'>\n" +
+        "    <i class='bx bxl-javascript '></i>\n" +
+        "    <a>main.ts</a>" +
+        "    <i class='bx bx-x croix'></i>" +
         "</li>"
 };
 
 
+const addFile = () => {
+    const lenListe = returnListId().length;
+
+    if (0 < lenListe && lenListe < 3) {
+        const liste = returnListId();
+
+        for (let i = 1; i < lenListe + 1; i++) {
+            if (liste[i - 1] > `fic${i}`) {
+                document.querySelector(`#${liste[i - 1]}`).insertAdjacentHTML("beforebegin", filesInBar[`fic${i}`]);
+                underline(document.querySelector(`#fic${i}`));
+                break;
+            } else if (i === lenListe) {
+                console.log(liste[i - 1], `fic${i}`);
+                document.querySelector(`#${liste[i - 1]}`).insertAdjacentHTML("afterend", filesInBar[`fic${i + 1}`]);
+                underline(document.querySelector(`#fic${i + 1}`));
+                break;
+            }
+        }
+    } else {
+        console.log("pas passé ❌");
+    }
+    /**
+     * Add a 'click' listener to the crosses in order to delete the file.
+     */
+    let croix = document.querySelectorAll(".croix");
+    croix.forEach((croix) => {
+        croix.addEventListener("click", () => {
+            delFic(croix.parentElement.id);
+        });
+    });
+
+    const items = document.querySelectorAll(".forward a");
+    items.forEach((item) => {
+        item.addEventListener("click", () => {
+            items.forEach((item) => {
+                item.parentElement.classList.remove("active");
+            });
+            underline(item.parentElement);
+        });
+    });
+}
+
+
+const bouton_plus = document.querySelector(".plus");
+bouton_plus.addEventListener("click", () => {
+    addFile();
+});
 
 
 
 
-
+console.log("Zemmour le sang")
 
 
 

@@ -118,34 +118,36 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"src/index.ts":[function(require,module,exports) {
-var sidebar = document.querySelector(".sidebar");
-var closeBtn = document.querySelector("#btn");
-var navBar = document.querySelector(".menu");
+// Sidebar element
+var sidebar = document.querySelector(".sidebar"); // Close button element
+
+var closeBtn = document.querySelector("#btn"); // Add an event on click to close button
+
 closeBtn.addEventListener("click", function () {
   sidebar.classList.toggle("open");
-  navBar.classList.toggle("open");
   menuBtnChange();
 });
+/**
+ * Function to toggle the menu button position.
+ */
 
-function menuBtnChange() {
-  if (sidebar.classList.contains("open")) {
-    closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-  } else {
-    closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-  }
+var menuBtnChange = function menuBtnChange() {
+  closeBtn.classList.replace(sidebar.classList.contains("open") ? "bx-menu" : "bx-menu-alt-right", sidebar.classList.contains("open") ? "bx-menu-alt-right" : "bx-menu");
+};
+/**
+ * Add the "active" class to an element.
+ * @param element element to which to add the 'active' class.
+ */
 
-  if (navBar.classList.contains("open")) {
-    navBar.classList.replace("open", "close");
-  } else {
-    navBar.classList.replace("close", "open");
-  }
-}
 
 var underline = function underline(element) {
+  document.querySelectorAll(".forward").forEach(function (e) {
+    return e.classList.remove("active");
+  });
   element.classList.add("active");
 };
 
-var items = document.querySelectorAll(".file-bar ul li:not(.plus) a");
+var items = document.querySelectorAll(".forward a");
 items.forEach(function (item) {
   item.addEventListener("click", function () {
     items.forEach(function (item) {
@@ -154,6 +156,9 @@ items.forEach(function (item) {
     underline(item.parentElement);
   });
 });
+/**
+ * Return the list of the li.forward ids.
+ */
 
 var returnListId = function returnListId() {
   var liste = [];
@@ -162,6 +167,11 @@ var returnListId = function returnListId() {
   });
   return liste;
 };
+/**
+ * Delete a file from the file-bar.
+ * @param elementId
+ */
+
 
 var delFic = function delFic(elementId) {
   var elem = document.getElementById(elementId);
@@ -184,64 +194,51 @@ var delFic = function delFic(elementId) {
 
   elem.parentNode.removeChild(elem);
 };
+/**
+ * Add a 'click' listener to the crosses in order to delete the file.
+ */
+
 
 var croix = document.querySelectorAll(".croix");
 croix.forEach(function (croix) {
   croix.addEventListener("click", function () {
     delFic(croix.parentElement.id);
   });
-}); // const filesInBar: { [id: string]: string } = {
-//     "fic1":
-//         "<li class=\"forward active\" id=\"fic1\">\n" +
-//         "    <i class='bx bx-code '></i>\n" +
-//         "    <a href=\"#\">index.html</a>\n" +
-//         "    <i class='bx bx-x croix'></i>\n" +
-//         "</li>",
-//     "fic2":
-//         "<li class=\"forward active\" id=\"fic2\">\n" +
-//         "    <i class='bx bx-code '></i>\n" +
-//         "    <a href=\"#\">style.scss</a>\n" +
-//         "    <i class='bx bx-x croix'></i>\n" +
-//         "</li>",
-//     "fic3":
-//         "<li class=\"forward active\" id=\"fic3\">\n" +
-//         "    <i class='bx bx-code '></i>\n" +
-//         "    <a href=\"#\">main.ts</a>\n" +
-//         "    <i class='bx bx-x croix'></i>\n" +
-//         "</li>"
-// };
-//
-// const addFic = (elementId: string) => {
-//     const elem = document.getElementById(elementId);
-//     const lastId = "#fic" + (+elementId.slice(3) - 1);
-//
-//     if (elem.classList.contains("active")) {
-//         document.querySelector(lastId).classList.add("active");
-//     }
-//     elem.parentNode.appendChild(elem);
-// }
-// const boutonAjout = document.querySelector(".plus");
-// boutonAjout.addEventListener("click", () => {
-//     const filesInBarWebsite = document.querySelectorAll(".nav-links .forward");
-//
-//     for (let i = 0; i < Object.keys(filesInBar).length; i++) {
-//         // console.log(filesInBarWebsite[i]);
-//         // if (filesInBarWebsite[i].id != "fic" + (i + 1)) {
-//         //     console.log(filesInBarWebsite[i].innerHTML);
-//         //     // filesInBarWebsite[i].innerHTML = filesInBar[filesInBarWebsite["fic" + i]];
-//         // } else {
-//         //     console.log("aaazaezaz");
-//         // }
-//         console.log(filesInBarWebsite[i]);
-//         if (filesInBarWebsite[i] === undefined) {
-//             console.log(filesInBar["fic" + (i + 1)]);
-//             // filesInBarWebsite[i].innerHTML = filesInBar[filesInBarWebsite["fic" + i]];
-//         } else {
-//             console.log(returnLastId(filesInBarWebsite));
-//         }
-//     }
-//
-// })
+});
+var filesInBar = {
+  "fic1": "<li class=\"forward\" id=\"fic1\">\n" + "    <i class='bx bx-code '></i>\n" + "    <a href=\"#\">index.html</a>\n" + "    <i class='bx bx-x croix'></i>\n" + "</li>",
+  "fic2": "<li class=\"forward\" id=\"fic2\">\n" + "    <i class='bx bx-code '></i>\n" + "    <a href=\"#\">style.scss</a>\n" + "    <i class='bx bx-x croix'></i>\n" + "</li>",
+  "fic3": "<li class=\"forward\" id=\"fic3\">\n" + "    <i class='bx bx-code '></i>\n" + "    <a href=\"#\">main.ts</a>\n" + "    <i class='bx bx-x croix'></i>\n" + "</li>\n"
+};
+
+var addFile = function addFile() {
+  var lenListe = returnListId().length;
+
+  if (0 < lenListe && lenListe < 3) {
+    var liste = returnListId();
+
+    for (var i = 1; i < lenListe + 1; i++) {
+      if (liste[i - 1] > "fic" + i) {
+        document.querySelector("#" + liste[i - 1]).insertAdjacentHTML("beforebegin", filesInBar["fic" + i]);
+        underline(document.querySelector("#fic" + i));
+        break;
+      } else if (i === lenListe) {
+        console.log(liste[i - 1], "fic" + i);
+        document.querySelector("#" + liste[i - 1]).insertAdjacentHTML("afterend", filesInBar["fic" + (i + 1)]);
+        underline(document.querySelector("#fic" + (i + 1)));
+        break;
+      }
+    }
+  } else {
+    console.log("pas passé ❌");
+  }
+};
+
+var bouton_plus = document.querySelector(".plus");
+bouton_plus.addEventListener("click", function () {
+  addFile();
+});
+console.log("Zemmour le sang");
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -270,7 +267,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62522" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52185" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
