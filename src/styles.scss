@@ -392,3 +392,45 @@ li.profile {
     transform: scaleX(1);
     transform-origin: left;
 }
+
+
+
+/**
+ * CONTENU----------------------------------------------------------------
+ */
+
+
+.contenu {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+
+    padding: 1vw;
+
+    border: black 1px solid;
+
+    .numeros {
+        height: 100%;
+        width: 3vw;
+
+        .ligneCode {
+            text-align: right;
+        }
+    }
+
+    .code {
+        font-family: Menlo;
+        height: 100%;
+        width: 97vw;
+
+    }
+
+    .ligneCode {
+            color: $couleur-police-secondaire;
+            line-height: 40px;
+            text-align: left;
+            padding-right: 5px;
+
+            font-size: 25px;
+    }
+}
